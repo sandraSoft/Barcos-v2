@@ -287,11 +287,13 @@ public class VentanaControlBarcos extends JFrame {
 				JOptionPane.showMessageDialog(this,"Barco registrado");
 			}
 			else {
-				JOptionPane.showMessageDialog(this,"Barco no registrado. Ya existe esa matrícula");
+				JOptionPane.showMessageDialog(this,"Barco no registrado. Ya existe esa matrícula",
+						"Error en registro",JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		catch (BarcoException errorRegistro) {
-			JOptionPane.showMessageDialog(this,errorRegistro.getMessage());
+			JOptionPane.showMessageDialog(this,errorRegistro.getMessage(), 
+					"Error en registro",JOptionPane.WARNING_MESSAGE);
 		}
 	}
 	
