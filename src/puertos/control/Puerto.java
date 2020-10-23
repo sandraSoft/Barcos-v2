@@ -46,11 +46,8 @@ public class Puerto {
 	public boolean adicionarBarco(String matricula, String nacionalidad, double volumen, 
 			char tipo, int pasajeros, boolean liquidos) throws BarcoException {
 		
-		if (volumen <= 0) {
-			throw new BarcoException("El volumen debe ser positivo");
-		}
-		if (volumen > 1000) {
-			throw new BarcoException("El volumen supera la capacidad del puerto (de 1000 m3)");
+		if (volumen <= 0 || volumen > 1000) {
+			throw new BarcoException("Volumen incorrecto: debe estar entre cero y mil [0 - 1000]");
 		}
 		
 		Barco barcoBuscado = buscarBarco(matricula);
