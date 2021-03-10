@@ -10,11 +10,12 @@ import puertos.entidades.Velero;
 /**
  * Clase donde se registran los barcos que llegan al puerto,
  * y tiene la principales funciones del programa (es el control).
- * @version 3.0
+ * @version 3.5
  */
 public class Puerto {
 
 	private List<Barco> barcos;
+	private final double VOLUMEN_MAXIMO = 1000;
 	
 	public Puerto() {
 		barcos = new ArrayList<>();
@@ -46,13 +47,11 @@ public class Puerto {
 	public boolean adicionarBarco(String matricula, String nacionalidad, double volumen, 
 			char tipo, int pasajeros, boolean liquidos) throws BarcoException {
 		
-		if (volumen <= 0 || volumen > 1000) {
+		if (!validarVolumenBarco(volumen)) {
 			throw new BarcoException("Volumen incorrecto: debe estar entre cero y mil [0 - 1000]");
 		}
 		
-		Barco barcoBuscado = buscarBarco(matricula);
-		
-		if (barcoBuscado == null) {
+		if (buscarBarco(matricula) == null) {
 			switch (tipo) {
 			  case 'v':
 			  case 'V': 
@@ -70,12 +69,24 @@ public class Puerto {
 	 * Busca un barco entre los que están registrados, por su número de matrícula
 	 * @return el objeto barco con la matrícula dada, o null si no se encuentra
 	 */
-	public Barco buscarBarco(String matricula) {
+	private Barco buscarBarco(String matricula) {
 		for (Barco barco : barcos) {
 			if (barco.getMatricula().equals(matricula)) {
 				return barco;
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Valida que el volumen de un barco se conserve en los rangos permitidos
+	 * @param volumen el volumen que se desea evaluar
+	 * @return	si el volumen es aceptado o no
+	 */
+	private boolean validarVolumenBarco(double volumen) {
+		if (volumen < 0 || volumen > VOLUMEN_MAXIMO) {
+			return false;
+		}
+		return true;
 	}
 }
