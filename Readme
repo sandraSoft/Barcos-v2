@@ -1,14 +1,14 @@
 PROYECTO BARCOS - v2
 Universidad de Caldas
 Ingeniería de Software
-2018 - 2019
+2018 - 2021
 
 Proyecto usado como ejemplo de algunos conceptos de orientación a objetos.
 No es un proyecto completo, pues la idea es que los estudiantes, como ejercicio, 
   realicen pruebas,adicionen validaciones y otras funcionalidades.
 
 Funcionalidad básica: en un puerto se tiene el registro de los barcos que llegan,
- y además de unos datos básicos se desea conocer la capacidad de cada barco,
+ y, además de unos datos básicos, se desea conocer la capacidad de cada barco,
  para poder obtener la capacidad total que maneja el puerto.
  
 *********** CAMBIOS con respecto a v1
