@@ -12,5 +12,7 @@ Funcionalidad básica: en un puerto se tiene el registro de los barcos que llega
  para poder obtener la capacidad total que maneja el puerto.
  
 *********** CAMBIOS con respecto a v1
-- Se crea una nueva excepción (BarcoException) para el manejo de los errores que tienen que ver la gestión de los barcos.
+- Se crea una nueva excepción (BarcoException) y métodos para el manejo de los errores 
+ que tienen que ver la creación de los barcos: validar que la matrícula no esté
+ repetida y que el volumen esté en los rangos permitidos en el puerto.
 No cambian las clases de entidad. Cambia la clase de control y la interfaz gráfica.
