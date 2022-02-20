@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import puertos.control.BarcoException;
-import puertos.control.Puerto;
+import puertos.control.ControlPuerto;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,7 +32,7 @@ import javax.swing.ButtonModel;
  */
 public class VentanaControlBarcos extends JFrame {
 	
-	private Puerto puerto;
+	private ControlPuerto puerto;
 
 	private JPanel contentPane;
 	private JTextField campoNacionalidad;
@@ -64,7 +64,7 @@ public class VentanaControlBarcos extends JFrame {
 	 */
 	public VentanaControlBarcos() {
 		
-		puerto = new Puerto();
+		puerto = new ControlPuerto();
 		
 		setTitle("Control Barcos");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -282,7 +282,8 @@ public class VentanaControlBarcos extends JFrame {
 		boolean liquidos = checkLiquidos.isSelected();
 		
 		if (!validarCampoObligatorio(nacionalidad)) {
-			JOptionPane.showMessageDialog(this,"Se debe ingresar algún dato en nacionalidad", 
+			JOptionPane.showMessageDialog(this,
+					"Se debe ingresar algún dato en nacionalidad", 
 					"Error",JOptionPane.WARNING_MESSAGE);
 		}
 		

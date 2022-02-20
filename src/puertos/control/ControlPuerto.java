@@ -12,12 +12,12 @@ import puertos.entidades.Velero;
  * y tiene la principales funciones del programa (es el control).
  * @version 3.5
  */
-public class Puerto {
+public class ControlPuerto {
 
 	private List<Barco> barcos;
 	private final double VOLUMEN_MAXIMO = 1000;
 	
-	public Puerto() {
+	public ControlPuerto() {
 		barcos = new ArrayList<>();
 	}
 	
@@ -45,12 +45,14 @@ public class Puerto {
 	public void adicionarBarco(String matricula, String nacionalidad, double volumen, 
 			char tipo, int pasajeros, boolean liquidos) throws BarcoException {
 
-		if (!validarMatriculaUnica(matricula)) {
-			throw new BarcoException("No se puede guardar: Ya existe un barco registrado con esa matrícula");
+		if (!existeMatricula(matricula)) {
+			throw new BarcoException("No se puede guardar: "
+					+ "Ya existe un barco registrado con esa matrícula");
 		}
 		
-		if (!validarVolumenBarco(volumen)) {
-			throw new BarcoException("Volumen incorrecto: debe estar entre cero y mil [0 - 1000]");
+		if (!esVolumenPermitido(volumen)) {
+			throw new BarcoException("Volumen incorrecto: "
+					+ "debe estar entre 0 y "+ VOLUMEN_MAXIMO);
 		}
 		
 
@@ -71,7 +73,7 @@ public class Puerto {
 	 * Valida que la matrícula no esté previamente registrada en la lista de barcos
 	 * @return true si la matrícula es única, o false si ya existe un barco con esa matrícula
 	 */
-	private boolean validarMatriculaUnica(String matricula) {
+	private boolean existeMatricula(String matricula) {
 		for (Barco barco : barcos) {
 			if (barco.getMatricula().equals(matricula)) {
 				return false;
@@ -85,7 +87,7 @@ public class Puerto {
 	 * @param volumen el volumen que se desea evaluar
 	 * @return	si el volumen es aceptado o no
 	 */
-	private boolean validarVolumenBarco(double volumen) {
+	private boolean esVolumenPermitido(double volumen) {
 		if (volumen < 0 || volumen > VOLUMEN_MAXIMO) {
 			return false;
 		}
