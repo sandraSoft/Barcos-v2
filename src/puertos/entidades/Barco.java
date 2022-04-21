@@ -2,10 +2,10 @@ package puertos.entidades;
 
 /**
  * Información de un barco que llega a un puerto,
- * y del que se desea conocer su capacidad de carga
+ * y del que se desea conocer su capacidad de carga.
+ * 
  * @version 2.0
  */
-@SuppressWarnings("unused")
 public abstract class Barco {
 	private String matricula;
 	private String nacionalidad;

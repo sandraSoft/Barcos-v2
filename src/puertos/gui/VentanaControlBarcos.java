@@ -28,6 +28,7 @@ import javax.swing.ButtonModel;
  * Interfaz gráfica sencilla que permite hacer algunas operaciones
  * con barcos en un puerto, principalmente para pruebas.
  * Esta ventana se generó con el WindowsBuilder (plugin de Eclipse).
+ * 
  * @version 1.5
  */
 public class VentanaControlBarcos extends JFrame {

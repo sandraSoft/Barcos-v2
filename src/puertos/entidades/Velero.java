@@ -2,6 +2,7 @@ package puertos.entidades;
 
 /**
  * Un barco deportivo, que lleva pasajeros, no tiene mucha capacida de carga.
+ * 
  * @version 2.0
  */
 public class Velero extends Barco

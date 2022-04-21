@@ -1,7 +1,8 @@
 package puertos.entidades;
 
 /**
- * Un barco que transporta carga entre puertos, tiene buena capacidad de carga
+ * Un barco que transporta carga entre puertos, tiene buena capacidad de carga.
+ * 
  * @version 2.0
  */
 public class Carguero extends Barco {
